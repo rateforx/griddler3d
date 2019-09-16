@@ -80,7 +80,7 @@
     </replaceStrings>
   </component>
   <component name="Git.Settings">
-    <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$/griddler3d" />
+    <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
   </component>
   <component name="IdeDocumentHistory">
     <option name="CHANGED_PATHS">
@@ -218,12 +218,12 @@
       <option name="presentableId" value="Default" />
       <updated>1568585169364</updated>
       <workItem from="1568585170726" duration="100000" />
-      <workItem from="1568585281179" duration="42482000" />
+      <workItem from="1568585281179" duration="42725000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="42582000" />
+    <option name="totallyTimeSpent" value="42825000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="-8" y="-8" width="1936" height="1066" extended-state="6" />
