@@ -1,72 +1,58 @@
 import * as THREE from 'three';
 
-export const STATES = {
-    EMPTY    : 'empty',
-    BOMB     : 'bomb',
-    DISARMED : 'disarmed',
-};
+export default class Field {
 
-export const FLAGS = {
-    EMPTY   : 'empty',
-    FLAGGED : 'flagged',
-    UNKNOWN : 'unknown',
-};
+    static STATES = {
+        EMPTY    : 'empty',
+        BOMB     : 'bomb',
+        DISARMED : 'disarmed',
+    };
 
-export class Field {
+    static FLAGS = {
+        EMPTY   : 'empty',
+        FLAGGED : 'flagged',
+        UNKNOWN : 'unknown',
+    };
 
     /**
      *
-     * @param id {Number}
+     * @param engine {Engine}
      * @param position {Vector3}
-     * @param state {STATES}
      */
-    constructor ( grid, id, position ) {
-        this.grid     = grid;
+    constructor ( engine, position ) {
+        this.engine   = engine;
+        this.grid     = engine.minefield.grid;
         this.id       = id;
-        this.state    = STATES.EMPTY;
-        this.flag     = FLAGS.EMPTY;
+        this.state    = Field.STATES.EMPTY;
+        this.flag     = Field.FLAGS.EMPTY;
         this.position = position;
 
-        let geometry = new THREE.BoxBufferGeometry();
-        let material = new THREE.MeshStandardMaterial( {
-            opacity     : .5,
-            transparent : true,
-        } );
-
-        this.boxMesh = new THREE.Mesh( geometry, material );
-
-        this.boxMesh.name       = 'Field';
-        this.boxMesh.castShadow = true;
-        this.boxMesh.position.copy( this.position ).multiplyScalar( grid.spacing );
-        this.boxMesh.userData.field = this;
-
-        let idMesh = new THREE.Mesh(
-            new THREE.TextBufferGeometry( this.id, {
-                font           : grid.fonts[ 0 ],
-                curveSegments  : 64,
-                bevelEnabled   : true,
-                bevelThickness : 1.5,
-                bevelSize      : .5,
-                bevelSegments  : 8,
-            } ),
-            material
+        this.mesh = new THREE.Mesh(
+            engine.renderer.geometries.field,
+            engine.renderer.materials.defaultActive
         );
-        idMesh.name = 'ID';
-        this.boxMesh.add( idMesh );
 
+        this.mesh.name       = 'Field';
+        this.mesh.castShadow = true;
+        this.mesh.position.copy( this.position ).multiplyScalar( grid.spacing );
+        this.mesh.userData.field = this;
     }
 
-    setState( state ) {
+    /**
+     *
+     * @param state
+     */
+    setState ( state ) {
         this.state = state;
         switch ( state ) {
-            case STATES.EMPTY:
-                this.boxMesh.material.color.set( 'white' );
+            case Field.STATES.EMPTY:
+                this.mesh.material = this.engine.renderer.materials.defaultActive;
                 break;
-            case STATES.BOMB:
-                this.boxMesh.material.color.set( 'red' );
+            case Field.STATES.BOMB:
+                this.mesh.material = this.engine.renderer.materials.defaultActive;
                 break;
-            case STATES.DISARMED:
-                this.boxMesh.material.color.set( 'green' );
+            case Field.STATES.DISARMED:
+                this.mesh.material = this.engine.renderer.materials.disarmedAcitve;
                 break;
         }
     }

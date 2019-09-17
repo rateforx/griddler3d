@@ -86,3 +86,9 @@ typings/
 
 # DynamoDB Local files
 .dynamodb/
+/public/js/bundle.js
+public/img/
+src/Controls.js
+src/Engine.js
+src/Minefield.js
+src/Renderer.js

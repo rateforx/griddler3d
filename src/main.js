@@ -1,21 +1,22 @@
 import * as THREE from 'three';
-import { PointLight, Vector2 } from 'three';
 import { GUI } from 'dat.gui';
 import { OrbitControls } from 'three/examples/jsm/controls/OrbitControls.js';
-import Grid from './Grid';
+import Minefield from './Minefield';
 import Stats from 'three/examples/jsm/libs/stats.module';
 import { EffectComposer } from 'three/examples/jsm/postprocessing/EffectComposer';
 import { RenderPass } from 'three/examples/jsm/postprocessing/RenderPass';
 import { ShaderPass } from 'three/examples/jsm/postprocessing/ShaderPass';
 import { FXAAShader } from 'three/examples/jsm/shaders/FXAAShader';
 import { OutlinePass } from 'three/examples/jsm/postprocessing/OutlinePass';
+import { Controls } from './Controls';
 
 window.THREE = THREE;
 
 let scene;
 let renderer;
 let camera;
-let controls;
+let orbitControls;
+let gameControls;
 let gui;
 let stats;
 export let SETTINGS = {
@@ -25,7 +26,7 @@ export let SETTINGS = {
     edgeGlow        : 0,
     edgeThickness   : 1,
     pulsePeriod     : 0,
-    spacing         : 1.5,
+    spacing         : 2,
     // game
     size            : 4,
     bombs           : .5,
@@ -35,40 +36,14 @@ export let SETTINGS = {
     }
 };
 
-let selectedObjects = [];
-let raycaster       = new THREE.Raycaster();
-let mouse           = new THREE.Vector2();
-
 let composer, fxaaPass, outlinePass;
-
-let fontLoader   = new THREE.FontLoader();
-export let fonts = [];
 
 let lights = [];
 
 function init () {
-    // scene
-    scene            = new THREE.Scene();
-    scene.background = new THREE.Color( SETTINGS.backgroundColor );
-    window.scene     = scene;
 
-    // camera
-    camera = new THREE.PerspectiveCamera( 60, window.innerWidth / window.innerHeight, 0.1, 1000 );
-    camera.position.set( 0, 10, -10 );
 
-    // renderer
-    renderer = new THREE.WebGLRenderer( { antialias : true } );
-    renderer.setSize( window.innerWidth, window.innerHeight );
-    renderer.shadowMap.enabled = true;
-    renderer.setPixelRatio( window.devicePixelRatio );
-    $( '#scene' ).append( renderer.domElement );
 
-    // controls
-    controls                 = new OrbitControls( camera, renderer.domElement );
-    controls.autoRotate      = true;
-    controls.autoRotateSpeed = 2;
-    controls.enableDamping   = true;
-    controls.dampingFactor   = .2;
 
     // gui
     gui          = new GUI();
@@ -78,21 +53,9 @@ function init () {
     guiScene.addColor( SETTINGS, 'backgroundColor' ).onChange( value => {
         scene.background = new THREE.Color( value );
     } );
-    guiScene.add( SETTINGS, 'edgeStrength', 0.01, 10 ).onChange( value => {
-        outlinePass.edgeStrength = Number( value );
-    } );
-    guiScene.add( SETTINGS, 'edgeGlow', 0.0, 1 ).onChange( value => {
-        outlinePass.edgeGlow = Number( value );
-    } );
-    guiScene.add( SETTINGS, 'edgeThickness', 1, 4 ).onChange( value => {
-        outlinePass.edgeThickness = Number( value );
-    } );
-    guiScene.add( SETTINGS, 'pulsePeriod', 0.0, 5 ).onChange( value => {
-        outlinePass.pulsePeriod = Number( value );
-    } );
     guiScene.add( SETTINGS, 'spacing', 1, 5 ).onChange( value => {
         for ( let field of grid.fields ) {
-            field.boxMesh.position.copy( field.position ).multiplyScalar( value );
+            field.mesh.position.copy( field.position ).multiplyScalar( value );
             new THREE.Box3().setFromObject( grid.object3D ).getCenter( grid.object3D.position ).multiplyScalar( -1 );
             camera.lookAt( grid.object3D.position );
         }
@@ -117,51 +80,21 @@ function init () {
     let renderPass = new RenderPass( scene, camera );
     composer.addPass( renderPass );
 
-    outlinePass = new OutlinePass(
+    outlinePass                  = new OutlinePass(
         new THREE.Vector2( window.innerWidth, window.innerHeight ),
         scene, camera
     );
+    outlinePass.edgeStrength     = 3;
+    outlinePass.edgeGlow         = 1;
+    outlinePass.edgeThickness    = 3;
+    outlinePass.pulsePeriod      = 2;
+    outlinePass.visibleEdgeColor = new THREE.Color();
+    outlinePass.hiddenEdgeColor  = new THREE.Color();
     composer.addPass( outlinePass );
 
     fxaaPass = new ShaderPass( FXAAShader );
     fxaaPass.uniforms[ 'resolution' ].value.set( 1 / window.innerWidth, 1 / window.innerHeight );
     composer.addPass( fxaaPass );
-
-    window.addEventListener( 'mousemove', onTouchMove );
-    window.addEventListener( 'touchmove', onTouchMove );
-
-    function onTouchMove ( event ) {
-        let x, y;
-        if ( event.changedTouches ) {
-            x = event.changedTouches[ 0 ].pageX;
-            y = event.changedTouches[ 0 ].pageY;
-        } else {
-            x = event.clientX;
-            y = event.clientY;
-        }
-        mouse.x = ( x / window.innerWidth ) * 2 - 1;
-        mouse.y = -( y / window.innerHeight ) * 2 + 1;
-        checkIntersection();
-    }
-
-    function addSelectedObject ( object ) {
-        selectedObjects = [];
-        selectedObjects.push( object );
-    }
-
-    function checkIntersection () {
-        raycaster.setFromCamera( mouse, camera );
-        let intersects = raycaster.intersectObjects( [ scene ], true );
-        if ( intersects.length > 0 ) {
-            let selectedObject = intersects[ 0 ].object;
-            if ( selectedObject.name === 'Field' ) {
-                addSelectedObject( selectedObject );
-                outlinePass.selectedObjects = selectedObjects;
-            }
-        } else {
-            // outlinePass.selectedObjects = [];
-        }
-    }
 
     // circle
     /*let circle = new THREE.Mesh(
@@ -177,13 +110,13 @@ function init () {
     scene.add( circle );*/
 
     // lights
-    lights.push( new PointLight() );
+    lights.push( new THREE.PointLight() );
     lights[ 0 ].position.set( -100, -100, -100 );
-    lights[ 0 ].mapSize    = new Vector2( 2048, 2048 );
+    lights[ 0 ].mapSize    = new THREE.Vector2( 2048, 2048 );
     lights[ 0 ].castShadow = true;
-    lights.push( new PointLight() );
+    lights.push( new THREE.PointLight() );
     lights[ 1 ].position.set( 100, 100, 100 );
-    lights[ 1 ].mapSize    = new Vector2( 2048, 2048 );
+    lights[ 1 ].mapSize    = new THREE.Vector2( 2048, 2048 );
     lights[ 1 ].castShadow = true;
     scene.add( lights[ 0 ], lights[ 1 ] );
 }
@@ -191,9 +124,9 @@ function init () {
 function render () {
     requestAnimationFrame( render );
     stats.begin();
-    controls.update();
-    renderer.render( scene, camera );
-    // composer.render();
+    orbitControls.update();
+    // renderer.render( scene, camera );
+    composer.render();
     stats.end();
 }
 
@@ -217,19 +150,20 @@ function resetGame () {
 }
 
 function initGame () {
-    grid        = new Grid( SETTINGS, fonts );
+    grid        = new Minefield( SETTINGS, fonts );
     window.grid = grid;
 
     new THREE.Box3().setFromObject( grid.object3D ).getCenter( grid.object3D.position ).multiplyScalar( -1 );
     scene.add( grid.object3D );
     camera.lookAt( grid.object3D.position );
-    controls.update();
+    orbitControls.update();
+
+    // gameControls = new Controls( grid, camera, outlinePass );
 }
 
 $( window ).resize( onResize );
 
-// fontLoader.load( 'fonts/saira_stencil_one_regular.json', font => {
-fontLoader.load( 'fonts/helvetiker_regular.typeface.json', font => {
+fontLoader.load( 'fonts/saira_stencil_one_regular.json', font => {
 
     fonts.push( font );
 
@@ -237,4 +171,4 @@ fontLoader.load( 'fonts/helvetiker_regular.typeface.json', font => {
     requestAnimationFrame( render );
     initGame();
 
-}, event => console.log( event ) );
+}, () => {}, event => console.log( event ) );
