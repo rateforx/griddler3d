@@ -1,5 +1,5 @@
 <component name="ProjectRunConfigurationManager">
-  <configuration default="false" name="bin\www" type="NodeJSConfigurationType" factoryName="Node.js" activateToolWindowBeforeRun="false" path-to-node="C:/Program Files/nodejs/node" path-to-js-file="bin/www" working-dir="$PROJECT_DIR$/../MineField">
+  <configuration default="false" name="bin\www" type="NodeJSConfigurationType" factoryName="Node.js" activateToolWindowBeforeRun="false" path-to-node="C:/Program Files/nodejs/node" path-to-js-file="$PROJECT_DIR$/../MineSpace/bin/www" working-dir="$PROJECT_DIR$/../MineSpace">
     <envs>
       <env name="PORT" value="80" />
     </envs>

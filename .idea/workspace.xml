@@ -21,7 +21,7 @@
   <component name="FileEditorManager">
     <leaf>
       <file leaf-file-name="Field.js" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/../MineField/src/Field.js">
+        <entry file="file://$PROJECT_DIR$/../MineSpace/src/Field.js">
           <provider selected="true" editor-type-id="text-editor">
             <state relative-caret-position="165">
               <caret line="16" column="7" lean-forward="false" selection-start-line="16" selection-start-column="7" selection-end-line="16" selection-end-column="7" />
@@ -31,10 +31,10 @@
         </entry>
       </file>
       <file leaf-file-name="Renderer.js" pinned="false" current-in-tab="true">
-        <entry file="file://$PROJECT_DIR$/../MineField/src/Renderer.js">
+        <entry file="file://$PROJECT_DIR$/../MineSpace/src/Renderer.js">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="2717">
-              <caret line="143" column="5" lean-forward="false" selection-start-line="143" selection-start-column="5" selection-end-line="143" selection-end-column="5" />
+            <state relative-caret-position="361">
+              <caret line="19" column="31" lean-forward="false" selection-start-line="19" selection-start-column="31" selection-end-line="19" selection-end-column="31" />
               <folding>
                 <element signature="e#0#288#0" expanded="true" />
               </folding>
@@ -43,7 +43,7 @@
         </entry>
       </file>
       <file leaf-file-name="main.js" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/../MineField/src/main.js">
+        <entry file="file://$PROJECT_DIR$/../MineSpace/src/main.js">
           <provider selected="true" editor-type-id="text-editor">
             <state relative-caret-position="133">
               <caret line="7" column="35" lean-forward="false" selection-start-line="7" selection-start-column="35" selection-end-line="7" selection-end-column="35" />
@@ -55,7 +55,7 @@
         </entry>
       </file>
       <file leaf-file-name="Controls.js" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/../MineField/src/Controls.js">
+        <entry file="file://$PROJECT_DIR$/../MineSpace/src/Controls.js">
           <provider selected="true" editor-type-id="text-editor">
             <state relative-caret-position="317">
               <caret line="93" column="28" lean-forward="false" selection-start-line="93" selection-start-column="28" selection-end-line="93" selection-end-column="28" />
@@ -67,7 +67,7 @@
         </entry>
       </file>
       <file leaf-file-name="Engine.js" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/../MineField/src/Engine.js">
+        <entry file="file://$PROJECT_DIR$/../MineSpace/src/Engine.js">
           <provider selected="true" editor-type-id="text-editor">
             <state relative-caret-position="684">
               <caret line="36" column="12" lean-forward="false" selection-start-line="36" selection-start-column="12" selection-end-line="36" selection-end-column="12" />
@@ -79,7 +79,7 @@
         </entry>
       </file>
       <file leaf-file-name="Minefield.js" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/../MineField/src/Minefield.js">
+        <entry file="file://$PROJECT_DIR$/../MineSpace/src/Minefield.js">
           <provider selected="true" editor-type-id="text-editor">
             <state relative-caret-position="399">
               <caret line="21" column="42" lean-forward="false" selection-start-line="21" selection-start-column="42" selection-end-line="21" selection-end-column="42" />
@@ -122,7 +122,7 @@
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
   </component>
   <component name="HighlightingSettingsPerFile">
-    <setting file="file://$PROJECT_DIR$/../MineField/public/js/bundle.js" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/../MineSpace/public/js/bundle.js" root0="FORCE_HIGHLIGHTING" />
   </component>
   <component name="IdeDocumentHistory">
     <option name="CHANGED_PATHS">
@@ -161,7 +161,7 @@
   </component>
   <component name="JsBuildToolGruntFileManager" detection-done="true" sorting="DEFINITION_ORDER" />
   <component name="JsBuildToolPackageJson" detection-done="true" sorting="DEFINITION_ORDER">
-    <package-json value="$PROJECT_DIR$/../MineField/package.json" />
+    <package-json value="$PROJECT_DIR$/../MineSpace/package.json" />
   </component>
   <component name="JsFlowSettings">
     <service-enabled>true</service-enabled>
@@ -217,44 +217,44 @@
           <expand>
             <path>
               <item name="griddler3d" type="b2602c69:ProjectViewProjectNode" />
-              <item name="MineField" type="462c0819:PsiDirectoryNode" />
+              <item name="MineSpace" type="462c0819:PsiDirectoryNode" />
             </path>
             <path>
               <item name="griddler3d" type="b2602c69:ProjectViewProjectNode" />
-              <item name="MineField" type="462c0819:PsiDirectoryNode" />
+              <item name="MineSpace" type="462c0819:PsiDirectoryNode" />
               <item name="bin" type="462c0819:PsiDirectoryNode" />
             </path>
             <path>
               <item name="griddler3d" type="b2602c69:ProjectViewProjectNode" />
-              <item name="MineField" type="462c0819:PsiDirectoryNode" />
+              <item name="MineSpace" type="462c0819:PsiDirectoryNode" />
               <item name="public" type="462c0819:PsiDirectoryNode" />
             </path>
             <path>
               <item name="griddler3d" type="b2602c69:ProjectViewProjectNode" />
-              <item name="MineField" type="462c0819:PsiDirectoryNode" />
+              <item name="MineSpace" type="462c0819:PsiDirectoryNode" />
               <item name="public" type="462c0819:PsiDirectoryNode" />
               <item name="css" type="462c0819:PsiDirectoryNode" />
             </path>
             <path>
               <item name="griddler3d" type="b2602c69:ProjectViewProjectNode" />
-              <item name="MineField" type="462c0819:PsiDirectoryNode" />
+              <item name="MineSpace" type="462c0819:PsiDirectoryNode" />
               <item name="public" type="462c0819:PsiDirectoryNode" />
               <item name="fonts" type="462c0819:PsiDirectoryNode" />
             </path>
             <path>
               <item name="griddler3d" type="b2602c69:ProjectViewProjectNode" />
-              <item name="MineField" type="462c0819:PsiDirectoryNode" />
+              <item name="MineSpace" type="462c0819:PsiDirectoryNode" />
               <item name="public" type="462c0819:PsiDirectoryNode" />
               <item name="js" type="462c0819:PsiDirectoryNode" />
             </path>
             <path>
               <item name="griddler3d" type="b2602c69:ProjectViewProjectNode" />
-              <item name="MineField" type="462c0819:PsiDirectoryNode" />
+              <item name="MineSpace" type="462c0819:PsiDirectoryNode" />
               <item name="src" type="462c0819:PsiDirectoryNode" />
             </path>
             <path>
               <item name="griddler3d" type="b2602c69:ProjectViewProjectNode" />
-              <item name="MineField" type="462c0819:PsiDirectoryNode" />
+              <item name="MineSpace" type="462c0819:PsiDirectoryNode" />
               <item name="views" type="462c0819:PsiDirectoryNode" />
             </path>
           </expand>
@@ -325,7 +325,7 @@
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="83224000" />
+    <option name="totallyTimeSpent" value="83379000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="-8" y="-8" width="1936" height="1066" extended-state="6" />
@@ -371,25 +371,25 @@
     <watches-manager />
   </component>
   <component name="editorHistoryManager">
-    <entry file="file://$PROJECT_DIR$/../MineField/node_modules/three/src/math/Color.d.ts">
+    <entry file="file://$PROJECT_DIR$/../MineSpace/node_modules/three/src/math/Color.d.ts">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="-602">
           <caret line="18" column="13" lean-forward="false" selection-start-line="18" selection-start-column="13" selection-end-line="18" selection-end-column="13" />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/../MineField/node_modules/three/examples/jsm/postprocessing/OutlinePass.d.ts">
+    <entry file="file://$PROJECT_DIR$/../MineSpace/node_modules/three/examples/jsm/postprocessing/OutlinePass.d.ts">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="621">
           <caret line="48" column="17" lean-forward="true" selection-start-line="48" selection-start-column="17" selection-end-line="48" selection-end-column="17" />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/../MineField/src/Minefield.js" />
-    <entry file="file://$PROJECT_DIR$/../MineField/src/Controls.js" />
-    <entry file="file://$PROJECT_DIR$/../MineField/src/Engine.js" />
-    <entry file="file://$PROJECT_DIR$/../MineField/src/Renderer.js" />
-    <entry file="file://$PROJECT_DIR$/../MineField/src/main.js">
+    <entry file="file://$PROJECT_DIR$/../MineSpace/src/Minefield.js" />
+    <entry file="file://$PROJECT_DIR$/../MineSpace/src/Controls.js" />
+    <entry file="file://$PROJECT_DIR$/../MineSpace/src/Engine.js" />
+    <entry file="file://$PROJECT_DIR$/../MineSpace/src/Renderer.js" />
+    <entry file="file://$PROJECT_DIR$/../MineSpace/src/main.js">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="2208">
           <caret line="96" column="33" lean-forward="true" selection-start-line="96" selection-start-column="33" selection-end-line="96" selection-end-column="33" />
@@ -399,7 +399,7 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/../MineField/package.json">
+    <entry file="file://$PROJECT_DIR$/../MineSpace/package.json">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="92">
           <caret line="4" column="38" lean-forward="true" selection-start-line="4" selection-start-column="38" selection-end-line="4" selection-end-column="38" />
@@ -407,7 +407,7 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/../MineField/src/Field.js">
+    <entry file="file://$PROJECT_DIR$/../MineSpace/src/Field.js">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="115">
           <caret line="25" column="43" lean-forward="true" selection-start-line="25" selection-start-column="43" selection-end-line="25" selection-end-column="43" />
@@ -429,21 +429,21 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/../MineField/public/css/style.css">
+    <entry file="file://$PROJECT_DIR$/../MineSpace/public/css/style.css">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="230">
           <caret line="10" column="9" lean-forward="false" selection-start-line="10" selection-start-column="9" selection-end-line="10" selection-end-column="9" />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/../MineField/public/css/style.less">
+    <entry file="file://$PROJECT_DIR$/../MineSpace/public/css/style.less">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="299">
           <caret line="13" column="19" lean-forward="false" selection-start-line="13" selection-start-column="19" selection-end-line="13" selection-end-column="19" />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/../MineField/bin/www">
+    <entry file="file://$PROJECT_DIR$/../MineSpace/bin/www">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="161">
           <caret line="7" column="58" lean-forward="false" selection-start-line="7" selection-start-column="58" selection-end-line="7" selection-end-column="58" />
@@ -452,14 +452,14 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/../three-browserify-boilerplate/package.json" />
     <entry file="file://$PROJECT_DIR$/src/Grid.ts" />
-    <entry file="file://$PROJECT_DIR$/../MineField/node_modules/three/src/geometries/BoxGeometry.d.ts">
+    <entry file="file://$PROJECT_DIR$/../MineSpace/node_modules/three/src/geometries/BoxGeometry.d.ts">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="115">
           <caret line="6" column="4" lean-forward="false" selection-start-line="6" selection-start-column="4" selection-end-line="6" selection-end-column="4" />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/../MineField/node_modules/three/examples/jsm/libs/stats.module.js">
+    <entry file="file://$PROJECT_DIR$/../MineSpace/node_modules/three/examples/jsm/libs/stats.module.js">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="92">
           <caret line="4" column="4" lean-forward="false" selection-start-line="4" selection-start-column="4" selection-end-line="4" selection-end-column="4" />
@@ -473,7 +473,7 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/../MineField/node_modules/three/build/three.module.js">
+    <entry file="file://$PROJECT_DIR$/../MineSpace/node_modules/three/build/three.module.js">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="157">
           <caret line="32080" column="9" lean-forward="false" selection-start-line="32080" selection-start-column="9" selection-end-line="32080" selection-end-column="9" />
@@ -487,7 +487,7 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/../MineField/node_modules/three/src/math/Vector2.d.ts">
+    <entry file="file://$PROJECT_DIR$/../MineSpace/node_modules/three/src/math/Vector2.d.ts">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="295">
           <caret line="132" column="13" lean-forward="false" selection-start-line="132" selection-start-column="13" selection-end-line="132" selection-end-column="13" />
@@ -501,78 +501,78 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/../MineField/node_modules/three/src/loaders/FontLoader.d.ts">
+    <entry file="file://$PROJECT_DIR$/../MineSpace/node_modules/three/src/loaders/FontLoader.d.ts">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="46">
           <caret line="3" column="13" lean-forward="false" selection-start-line="3" selection-start-column="13" selection-end-line="3" selection-end-column="13" />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/../MineField/node_modules/three/examples/jsm/shaders/FXAAShader.d.ts">
+    <entry file="file://$PROJECT_DIR$/../MineSpace/node_modules/three/examples/jsm/shaders/FXAAShader.d.ts">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="0">
           <caret line="0" column="7" lean-forward="true" selection-start-line="0" selection-start-column="7" selection-end-line="0" selection-end-column="7" />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/../MineField/node_modules/three/examples/jsm/postprocessing/ShaderPass.d.ts">
+    <entry file="file://$PROJECT_DIR$/../MineSpace/node_modules/three/examples/jsm/postprocessing/ShaderPass.d.ts">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="69">
           <caret line="7" column="2" lean-forward="false" selection-start-line="7" selection-start-column="2" selection-end-line="7" selection-end-column="2" />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/../MineField/README.md" />
-    <entry file="file://$PROJECT_DIR$/../MineField/node_modules/three/src/constants.d.ts">
+    <entry file="file://$PROJECT_DIR$/../MineSpace/README.md" />
+    <entry file="file://$PROJECT_DIR$/../MineSpace/node_modules/three/src/constants.d.ts">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="-2346">
           <caret line="57" column="34" lean-forward="false" selection-start-line="57" selection-start-column="34" selection-end-line="57" selection-end-column="34" />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/../MineField/node_modules/three/examples/jsm/controls/OrbitControls.d.ts">
+    <entry file="file://$PROJECT_DIR$/../MineSpace/node_modules/three/examples/jsm/controls/OrbitControls.d.ts">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="253">
           <caret line="128" column="40" lean-forward="true" selection-start-line="128" selection-start-column="40" selection-end-line="128" selection-end-column="40" />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/../MineField/node_modules/three/src/objects/Line.d.ts">
+    <entry file="file://$PROJECT_DIR$/../MineSpace/node_modules/three/src/objects/Line.d.ts">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="46">
           <caret line="2" column="40" lean-forward="true" selection-start-line="2" selection-start-column="40" selection-end-line="2" selection-end-column="40" />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/../MineField/node_modules/three/src/core/Raycaster.d.ts">
+    <entry file="file://$PROJECT_DIR$/../MineSpace/node_modules/three/src/core/Raycaster.d.ts">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="138">
           <caret line="26" column="15" lean-forward="true" selection-start-line="26" selection-start-column="15" selection-end-line="26" selection-end-column="15" />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/../MineField/node_modules/three/src/math/Color.d.ts">
+    <entry file="file://$PROJECT_DIR$/../MineSpace/node_modules/three/src/math/Color.d.ts">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="-602">
           <caret line="18" column="13" lean-forward="false" selection-start-line="18" selection-start-column="13" selection-end-line="18" selection-end-column="13" />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/../MineField/node_modules/three/examples/jsm/postprocessing/OutlinePass.d.ts">
+    <entry file="file://$PROJECT_DIR$/../MineSpace/node_modules/three/examples/jsm/postprocessing/OutlinePass.d.ts">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="621">
           <caret line="48" column="17" lean-forward="true" selection-start-line="48" selection-start-column="17" selection-end-line="48" selection-end-column="17" />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/../MineField/.gitignore">
+    <entry file="file://$PROJECT_DIR$/../MineSpace/.gitignore">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="276">
           <caret line="88" column="20" lean-forward="false" selection-start-line="88" selection-start-column="20" selection-end-line="88" selection-end-column="20" />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/../MineField/node_modules/three/src/math/Vector3.d.ts">
+    <entry file="file://$PROJECT_DIR$/../MineSpace/node_modules/three/src/math/Vector3.d.ts">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="295">
           <caret line="89" column="4" lean-forward="false" selection-start-line="89" selection-start-column="4" selection-end-line="89" selection-end-column="4" />
@@ -580,7 +580,7 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/../MineField/node_modules/three/src/core/Object3D.d.ts">
+    <entry file="file://$PROJECT_DIR$/../MineSpace/node_modules/three/src/core/Object3D.d.ts">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="109">
           <caret line="283" column="4" lean-forward="false" selection-start-line="283" selection-start-column="4" selection-end-line="283" selection-end-column="4" />
@@ -588,7 +588,7 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/../MineField/node_modules/three/src/objects/Group.d.ts">
+    <entry file="file://$PROJECT_DIR$/../MineSpace/node_modules/three/src/objects/Group.d.ts">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="76">
           <caret line="4" column="4" lean-forward="false" selection-start-line="4" selection-start-column="4" selection-end-line="4" selection-end-column="4" />
@@ -596,7 +596,7 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/../MineField/public/js/bundle.js">
+    <entry file="file://$PROJECT_DIR$/../MineSpace/public/js/bundle.js">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="0">
           <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
@@ -612,7 +612,7 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/../MineField/node_modules/dat.gui/build/dat.gui.js">
+    <entry file="file://$PROJECT_DIR$/../MineSpace/node_modules/dat.gui/build/dat.gui.js">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="37753">
           <caret line="1987" column="14" lean-forward="true" selection-start-line="1987" selection-start-column="14" selection-end-line="1987" selection-end-column="14" />
@@ -620,7 +620,7 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/../MineField/package.json">
+    <entry file="file://$PROJECT_DIR$/../MineSpace/package.json">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="38">
           <caret line="2" column="21" lean-forward="false" selection-start-line="2" selection-start-column="21" selection-end-line="2" selection-end-column="21" />
@@ -628,7 +628,7 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/../MineField/app.js">
+    <entry file="file://$PROJECT_DIR$/../MineSpace/app.js">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="190">
           <caret line="10" column="37" lean-forward="true" selection-start-line="10" selection-start-column="37" selection-end-line="10" selection-end-column="37" />
@@ -636,7 +636,7 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/../MineField/views/layout.pug">
+    <entry file="file://$PROJECT_DIR$/../MineSpace/views/layout.pug">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="57">
           <caret line="3" column="23" lean-forward="false" selection-start-line="3" selection-start-column="23" selection-end-line="3" selection-end-column="23" />
@@ -644,7 +644,7 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/../MineField/views/index.pug">
+    <entry file="file://$PROJECT_DIR$/../MineSpace/views/index.pug">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="0">
           <caret line="0" column="11" lean-forward="false" selection-start-line="0" selection-start-column="11" selection-end-line="0" selection-end-column="11" />
@@ -652,7 +652,7 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/../MineField/views/error.pug">
+    <entry file="file://$PROJECT_DIR$/../MineSpace/views/error.pug">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="114">
           <caret line="6" column="0" lean-forward="true" selection-start-line="6" selection-start-column="0" selection-end-line="6" selection-end-column="0" />
@@ -660,7 +660,7 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/../MineField/src/Minefield.js">
+    <entry file="file://$PROJECT_DIR$/../MineSpace/src/Minefield.js">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="399">
           <caret line="21" column="42" lean-forward="false" selection-start-line="21" selection-start-column="42" selection-end-line="21" selection-end-column="42" />
@@ -670,7 +670,7 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/../MineField/src/Engine.js">
+    <entry file="file://$PROJECT_DIR$/../MineSpace/src/Engine.js">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="684">
           <caret line="36" column="12" lean-forward="false" selection-start-line="36" selection-start-column="12" selection-end-line="36" selection-end-column="12" />
@@ -680,7 +680,7 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/../MineField/src/main.js">
+    <entry file="file://$PROJECT_DIR$/../MineSpace/src/main.js">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="133">
           <caret line="7" column="35" lean-forward="false" selection-start-line="7" selection-start-column="35" selection-end-line="7" selection-end-column="35" />
@@ -690,7 +690,7 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/../MineField/src/Controls.js">
+    <entry file="file://$PROJECT_DIR$/../MineSpace/src/Controls.js">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="317">
           <caret line="93" column="28" lean-forward="false" selection-start-line="93" selection-start-column="28" selection-end-line="93" selection-end-column="28" />
@@ -700,7 +700,7 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/../MineField/src/Field.js">
+    <entry file="file://$PROJECT_DIR$/../MineSpace/src/Field.js">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="165">
           <caret line="16" column="7" lean-forward="false" selection-start-line="16" selection-start-column="7" selection-end-line="16" selection-end-column="7" />
@@ -708,10 +708,10 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/../MineField/src/Renderer.js">
+    <entry file="file://$PROJECT_DIR$/../MineSpace/src/Renderer.js">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="2717">
-          <caret line="143" column="5" lean-forward="false" selection-start-line="143" selection-start-column="5" selection-end-line="143" selection-end-column="5" />
+        <state relative-caret-position="361">
+          <caret line="19" column="31" lean-forward="false" selection-start-line="19" selection-start-column="31" selection-end-line="19" selection-end-column="31" />
           <folding>
             <element signature="e#0#288#0" expanded="true" />
           </folding>
