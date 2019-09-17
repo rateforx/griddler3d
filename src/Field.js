@@ -1,4 +1,4 @@
-import * as THREE from 'three';
+import { Mesh } from "three";
 
 export default class Field {
 
@@ -19,22 +19,20 @@ export default class Field {
      * @param engine {Engine}
      * @param position {Vector3}
      */
-    constructor ( engine, position ) {
+    constructor( engine, position ) {
         this.engine   = engine;
-        this.grid     = engine.minefield.grid;
-        this.id       = id;
         this.state    = Field.STATES.EMPTY;
         this.flag     = Field.FLAGS.EMPTY;
         this.position = position;
 
-        this.mesh = new THREE.Mesh(
-            engine.renderer.geometries.field,
-            engine.renderer.materials.defaultActive
+        this.mesh = new Mesh(
+            engine.webGLRenderer.geometries.field,
+            engine.webGLRenderer.materials.defaultActive
         );
 
         this.mesh.name       = 'Field';
         this.mesh.castShadow = true;
-        this.mesh.position.copy( this.position ).multiplyScalar( grid.spacing );
+        this.mesh.position.copy( this.position ).multiplyScalar( engine.settings.spacing );
         this.mesh.userData.field = this;
     }
 
@@ -42,17 +40,17 @@ export default class Field {
      *
      * @param state
      */
-    setState ( state ) {
+    setState( state ) {
         this.state = state;
         switch ( state ) {
             case Field.STATES.EMPTY:
-                this.mesh.material = this.engine.renderer.materials.defaultActive;
+                this.mesh.material = this.engine.webGLRenderer.materials.defaultActive;
                 break;
             case Field.STATES.BOMB:
-                this.mesh.material = this.engine.renderer.materials.defaultActive;
+                this.mesh.material = this.engine.webGLRenderer.materials.defaultActive;
                 break;
             case Field.STATES.DISARMED:
-                this.mesh.material = this.engine.renderer.materials.disarmedAcitve;
+                this.mesh.material = this.engine.webGLRenderer.materials.disarmedActive;
                 break;
         }
     }

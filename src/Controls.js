@@ -9,20 +9,20 @@ export default class Controls {
         Z : 'z',
     };
 
-    constructor ( engine ) {
+    constructor( engine ) {
         this.engine = engine;
 
-        this.grid = engine.grid;
-        this.scene = engine.renderer.scene;
-        this.camera = engine.renderer.camera;
-        this.renderer = engine.renderer.renderer;
-        this.outlinePass = engine.renderer.outlinePass;
+        this.grid          = engine.grid;
+        this.scene         = engine.webGLRenderer.scene;
+        this.camera        = engine.webGLRenderer.camera;
+        this.webGLRenderer = engine.webGLRenderer.webGLRenderer;
+        this.outlinePass   = engine.webGLRenderer.outlinePass;
 
         this.currentPlane = Controls.PLANES.Y;
         this.currentLayer = 0;
 
         // controls
-        this.orbitControls                 = new OrbitControls( this.camera, this.renderer.domElement );
+        this.orbitControls                 = new OrbitControls( this.camera, this.webGLRenderer.domElement );
         this.orbitControls.autoRotate      = true;
         this.orbitControls.autoRotateSpeed = 2;
         this.orbitControls.enableDamping   = true;
@@ -63,15 +63,15 @@ export default class Controls {
         } );
     }
 
-    nextLayer () {
+    nextLayer() {
         this.currentLayer = this.currentLayer === this.grid.size ? this.currentLayer++ : 0;
     }
 
-    previousLayer () {
+    previousLayer() {
         this.currentLayer = this.currentLayer === 0 ? this.grid.size - 1 : this.currentLayer--;
     }
 
-    nextPlane () {
+    nextPlane() {
         switch ( this.currentPlane ) {
             case Controls.PLANES.X:
                 this.currentPlane = Controls.PLANES.Y;
@@ -85,12 +85,12 @@ export default class Controls {
         }
     }
 
-    addSelectedObject ( object ) {
+    addSelectedObject( object ) {
         this.selectedObjects = [];
         this.selectedObjects.push( object );
     }
 
-    checkIntersection () {
+    checkIntersection() {
         console.log( this );
         this.raycaster.setFromCamera( this.mouse, this.camera );
         let intersects = this.raycaster.intersectObjects( [ this.scene ], true );
@@ -109,7 +109,7 @@ export default class Controls {
         }
     }
 
-    isObjectOnCurrentLayer ( object ) {
+    isObjectOnCurrentLayer( object ) {
         let position = object.userData.field.position;
         let layer    = position[ this.currentPlane ];
         return layer === this.currentLayer;

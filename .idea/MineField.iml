@@ -2,13 +2,14 @@
 <module type="WEB_MODULE" version="4">
   <component name="NewModuleRootManager">
     <content url="file://$MODULE_DIR$">
-      <excludeFolder url="file://$MODULE_DIR$/.tmp" />
-      <excludeFolder url="file://$MODULE_DIR$/temp" />
-      <excludeFolder url="file://$MODULE_DIR$/tmp" />
+      <excludeFolder url="file://$MODULE_DIR$/../griddler3d/.tmp" />
+      <excludeFolder url="file://$MODULE_DIR$/../griddler3d/temp" />
+      <excludeFolder url="file://$MODULE_DIR$/../griddler3d/tmp" />
       <excludePattern pattern="bundje.js" />
     </content>
     <orderEntry type="inheritedJdk" />
     <orderEntry type="sourceFolder" forTests="false" />
+    <orderEntry type="library" name="jquery.mousewheel" level="application" />
     <orderEntry type="library" name="jquery.mousewheel" level="application" />
   </component>
 </module>

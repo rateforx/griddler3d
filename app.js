@@ -14,7 +14,7 @@ let browserify = Browserify( {
     plugin       : [ Watchify ],
 } );
 
-function bundle () {
+function bundle() {
     browserify
         .transform( 'babelify', {
             presets : [ '@babel/preset-env' ],
@@ -30,9 +30,12 @@ function bundle () {
 browserify.on( 'update', bundle );
 bundle();
 
-const indexRouter = require( './routes/index' );
+const app    = express();
+const router = new express.Router();
 
-let app = express();
+router.get( '/', function ( req, res, next ) {
+    res.render( 'index' );
+} );
 
 // view engine setup
 app.set( 'views', path.join( __dirname, 'views' ) );
@@ -44,7 +47,7 @@ app.use( express.urlencoded( { extended : false } ) );
 app.use( cookieParser() );
 app.use( express.static( path.join( __dirname, 'public' ) ) );
 
-app.use( '/', indexRouter );
+app.use( '/', router );
 
 // catch 404 and forward to error handler
 app.use( function ( req, res, next ) {

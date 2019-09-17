@@ -1,27 +1,23 @@
-import * as THREE from 'three';
 import Field from './Field';
+import { Group, Vector3 } from "three";
 
 export default class Minefield {
 
     /**
      * Creates an empty object structure.
      * References to fields are saved in two array structures, one is a 3-dimentional array while the other is a regular array.
-     * @param settings
-     * @param fonts
+     * @param engine {Engine}
      */
-    constructor ( engine ) {
+    constructor( engine ) {
         this.engine     = engine;
-        this.size       = settings.size;
-        this.spacing    = settings.spacing;
-        this.fonts      = fonts;
-        this.bombsCount = Math.floor( Math.pow( this.size, 3 ) * settings.bombs );
-        this.object3D   = new THREE.Group();
+        this.size       = engine.settings.size;
+        this.spacing    = engine.settings.spacing;
+        this.bombsCount = Math.floor( Math.pow( this.size, 3 ) * this.engine.settings.bombs );
+        this.mesh       = new Group();
+        this.fields     = [];
+        this.grid       = [];
 
-        this.fields = [];
-        let id      = 0;
-        let size    = settings.size;
-
-        this.grid = [];
+        let id = 0;
 
         for ( let i = 0; i < size; i++ ) {
 
@@ -33,10 +29,10 @@ export default class Minefield {
 
                 for ( let k = 0; k < size; k++ ) {
 
-                    let field = new Field( this.engine, new THREE.Vector3( i, j, k ) );
+                    let field = new Field( this.engine, new Vector3( i, j, k ) );
                     field.id  = id++;
 
-                    this.object3D.add( field.mesh );
+                    this.mesh.add( field.mesh );
                     this.grid[ i ][ j ].push( field );
                     this.fields.push( field );
 
@@ -44,23 +40,33 @@ export default class Minefield {
             }
         }
 
+        this.center();
+
         let emptyFields = [ ...this.fields ];
         let bombsLeft   = this.bombsCount;
         while ( bombsLeft > 0 ) {
             let i = Math.floor( Math.random() * emptyFields.length );
-            emptyFields[ i ].setState( STATES.BOMB );
+            emptyFields[ i ].setState( Field.STATES.BOMB );
             emptyFields.splice( i, 1 );
             bombsLeft--;
         }
+
+        engine.webGLRenderer.scene.add( this.mesh );
+    }
+
+    center() {
+        this.mesh.position.subScalar(
+            ( this.size - 1 ) * this.engine.settings.spacing / 2
+        );
     }
 
     /**
      *
-     * @param id
      * @return {Object}
+     * @param field
      */
-    getColumnsByField ( id ) {
-        let position = this.fields[ id ].position;
+    getColumnsByField( field ) {
+        let position = field.position;
         let result   = {
             x : [],
             y : [],
@@ -77,19 +83,25 @@ export default class Minefield {
                 result.z.push( field );
             }
         }
-        result.x.sort( ( a, b ) => { return a.x - b.x; } );
-        result.y.sort( ( a, b ) => { return a.y - b.y; } );
-        result.z.sort( ( a, b ) => { return a.z - b.z; } );
+        result.x.sort( ( a, b ) => {
+            return a.x - b.x;
+        } );
+        result.y.sort( ( a, b ) => {
+            return a.y - b.y;
+        } );
+        result.z.sort( ( a, b ) => {
+            return a.z - b.z;
+        } );
         return result;
     }
 
     /**
      *
-     * @param id
      * @return {Object}
+     * @param field
      */
-    getPlanesByField ( id ) {
-        let position = this.fields[ id ].position;
+    getPlanesByField( field ) {
+        let position = field.position;
         let result   = {
             x : [],
             y : [],
