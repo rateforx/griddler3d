@@ -1,50 +1,55 @@
-import * as THREE from 'three';
 import { OrbitControls } from 'three/examples/jsm/controls/OrbitControls';
+import { Raycaster, Vector2 } from 'three';
+
+export const PLANES = {
+    X : 'x',
+    Y : 'y',
+    Z : 'z',
+};
 
 export default class Controls {
 
-    static PLANES = {
-        X : 'x',
-        Y : 'y',
-        Z : 'z',
-    };
-
-    constructor( engine ) {
+    constructor ( engine ) {
         this.engine = engine;
 
-        this.grid          = engine.grid;
-        this.scene         = engine.webGLRenderer.scene;
-        this.camera        = engine.webGLRenderer.camera;
-        this.webGLRenderer = engine.webGLRenderer.webGLRenderer;
-        this.outlinePass   = engine.webGLRenderer.outlinePass;
+        this.scene       = engine.renderer.scene;
+        this.camera      = engine.renderer.camera;
+        this.renderer    = engine.renderer.webGLRenderer;
+        this.outlinePass = engine.renderer.outlinePass;
 
-        this.currentPlane = Controls.PLANES.Y;
+        this.currentPlane = PLANES.Y;
         this.currentLayer = 0;
 
         // controls
-        this.orbitControls                 = new OrbitControls( this.camera, this.webGLRenderer.domElement );
-        this.orbitControls.autoRotate      = true;
-        this.orbitControls.autoRotateSpeed = 2;
-        this.orbitControls.enableDamping   = true;
-        this.orbitControls.dampingFactor   = .2;
-        this.orbitControls.enableZoom      = false;
+        this.orbitControls               = new OrbitControls( this.camera, this.renderer.domElement );
+        this.orbitControls.enableDamping = true;
+        this.orbitControls.dampingFactor = .05;
+        this.orbitControls.enableZoom    = false;
 
         this.selectedObjects = [];
-        this.raycaster       = new THREE.Raycaster();
-        this.mouse           = new THREE.Vector2();
+        this.raycaster       = new Raycaster();
+        this.mouse           = new Vector2();
 
         $( document ).mousewheel( e => {
             if ( e.deltaY > 0 ) {
-                this.nextLayer();
+                this.currentLayer++;
+                if ( this.currentLayer === this.engine.minefield.size ) {
+                    this.currentLayer = 0;
+                }
             }
             if ( e.deltaY < 0 ) {
-                this.previousLayer();
+                this.currentLayer--;
+                if ( this.currentLayer === -1 ) {
+                    this.currentLayer = this.engine.minefield.size - 1;
+                }
             }
+            console.log( 'Current layer: ' + this.currentLayer );
         } );
 
         $( document ).keypress( e => {
             if ( e.code === 'Space' ) {
                 this.nextPlane();
+                console.log( 'Current plane: ' + this.currentPlane );
             }
         } );
 
@@ -63,43 +68,43 @@ export default class Controls {
         } );
     }
 
-    nextLayer() {
-        this.currentLayer = this.currentLayer === this.grid.size ? this.currentLayer++ : 0;
+    nextLayer () {
+        this.currentLayer = this.currentLayer === this.engine.minefield.size ? 0 : this.currentLayer++;
     }
 
-    previousLayer() {
-        this.currentLayer = this.currentLayer === 0 ? this.grid.size - 1 : this.currentLayer--;
+    previousLayer () {
+        this.currentLayer = this.currentLayer === 0 ? this.engine.minefield.size - 1 : this.currentLayer--;
     }
 
-    nextPlane() {
+    nextPlane () {
         switch ( this.currentPlane ) {
-            case Controls.PLANES.X:
-                this.currentPlane = Controls.PLANES.Y;
+            case PLANES.X:
+                this.currentPlane = PLANES.Y;
                 break;
-            case Controls.PLANES.Y:
-                this.currentPlane = Controls.PLANES.Z;
+            case PLANES.Y:
+                this.currentPlane = PLANES.Z;
                 break;
-            case Controls.PLANES.Z:
-                this.currentPlane = Controls.PLANES.X;
+            case PLANES.Z:
+                this.currentPlane = PLANES.X;
                 break;
         }
     }
 
-    addSelectedObject( object ) {
+    getActiveColumns ( object ) {
+        this.engine.minefield.getColumnsByField( object.userData.field );
         this.selectedObjects = [];
         this.selectedObjects.push( object );
     }
 
-    checkIntersection() {
-        console.log( this );
+    checkIntersection () {
         this.raycaster.setFromCamera( this.mouse, this.camera );
-        let intersects = this.raycaster.intersectObjects( [ this.scene ], true );
+        let intersects = this.raycaster.intersectObjects( [ this.engine.minefield.mesh ], true );
 
         if ( intersects.length > 0 ) {
             for ( let object of intersects ) {
 
                 if ( object.name === 'Field' && this.isObjectOnCurrentLayer( object ) ) {
-                    this.addSelectedObject( object );
+                    this.getActiveColumns( object );
                     this.outlinePass.selectedObjects = selectedObjects;
                     break;
                 }
@@ -109,7 +114,7 @@ export default class Controls {
         }
     }
 
-    isObjectOnCurrentLayer( object ) {
+    isObjectOnCurrentLayer ( object ) {
         let position = object.userData.field.position;
         let layer    = position[ this.currentPlane ];
         return layer === this.currentLayer;

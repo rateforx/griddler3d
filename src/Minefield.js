@@ -1,5 +1,5 @@
-import Field from './Field';
-import { Group, Vector3 } from "three";
+import Field, { STATES } from './Field';
+import { Group, Vector3 } from 'three';
 
 export default class Minefield {
 
@@ -19,15 +19,15 @@ export default class Minefield {
 
         let id = 0;
 
-        for ( let i = 0; i < size; i++ ) {
+        for ( let i = 0; i < this.size; i++ ) {
 
             this.grid[ i ] = [];
 
-            for ( let j = 0; j < size; j++ ) {
+            for ( let j = 0; j < this.size; j++ ) {
 
                 this.grid[ i ][ j ] = [];
 
-                for ( let k = 0; k < size; k++ ) {
+                for ( let k = 0; k < this.size; k++ ) {
 
                     let field = new Field( this.engine, new Vector3( i, j, k ) );
                     field.id  = id++;
@@ -46,12 +46,12 @@ export default class Minefield {
         let bombsLeft   = this.bombsCount;
         while ( bombsLeft > 0 ) {
             let i = Math.floor( Math.random() * emptyFields.length );
-            emptyFields[ i ].setState( Field.STATES.BOMB );
+            emptyFields[ i ].setState( STATES.BOMB );
             emptyFields.splice( i, 1 );
             bombsLeft--;
         }
 
-        engine.webGLRenderer.scene.add( this.mesh );
+        engine.renderer.scene.add( this.mesh );
     }
 
     center() {

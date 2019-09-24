@@ -1,12 +1,12 @@
 import Renderer from './Renderer';
 import Minefield from './Minefield';
 import Controls from './Controls';
-import { GUI } from "dat.gui";
-import { Color } from "three";
+import { GUI } from 'dat.gui';
+import { Color, Sphere } from 'three';
 
 export default class Engine {
 
-    constructor() {
+    constructor () {
 
         this.settings = {
             // scene
@@ -15,20 +15,23 @@ export default class Engine {
             // game
             size            : 4,
             bombs           : .5,
-            restart         : this.start
+            restart         : () => {
+                console.log( 'restart' );
+                this.renderer.scene.remove( this.minefield.mesh );
+                this.start();
+            }
         };
 
         this.renderer = new Renderer( this );
-        this.controls = new Controls( this );
 
         this.gui      = new GUI();
-        this.guiScene = gui.addFolder( 'Scene' );
-        this.guiGame  = gui.addFolder( 'Game' );
+        this.guiScene = this.gui.addFolder( 'Scene' );
+        this.guiGame  = this.gui.addFolder( 'Game' );
 
         this.guiScene.addColor( this.settings, 'backgroundColor' ).onChange( value => {
-            this.renderer.webGLRenderer.scene.background = new Color( value );
+            this.renderer.scene.background = new Color( value );
         } );
-        this.guiScene.add( this.settings, 'spacing', 1, 5 ).onChange( value => {
+        this.guiScene.add( this.settings, 'spacing', 1.1, 5 ).onChange( value => {
 
             for ( let field of this.minefield.fields ) {
                 field.mesh.position.copy( field.position ).multiplyScalar( value );
@@ -43,11 +46,22 @@ export default class Engine {
         this.guiGame.open();
 
         this.gui.open();
-
     }
 
-    start() {
+    loadAssets() {
+        this.renderer.loaders.fontLoader.load( 'fonts/saira_stencil_one_regular.json', font => {
+            this.renderer.fonts.saira = font;
+        } );
+    }
+
+    start () {
         this.minefield = new Minefield( this );
+        this.controls = new Controls( this );
+        this.renderer.draw();
+        this.renderer.camera.position
+            .set( 1, 1, -1 )
+            .multiplyScalar( this.settings.size + this.settings.spacing )
+        ;
     }
 
 }

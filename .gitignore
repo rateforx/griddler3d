@@ -87,3 +87,4 @@ typings/
 # DynamoDB Local files
 .dynamodb/
 /public/js/bundle.js
+public/js/bundle.js

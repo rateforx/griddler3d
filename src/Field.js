@@ -1,33 +1,33 @@
-import { Mesh } from "three";
+import { Mesh } from 'three';
+
+export const STATES = {
+    EMPTY    : 'empty',
+    BOMB     : 'bomb',
+    DISARMED : 'disarmed',
+};
+
+export const FLAGS = {
+    EMPTY   : 'empty',
+    FLAGGED : 'flagged',
+    UNKNOWN : 'unknown',
+};
 
 export default class Field {
-
-    static STATES = {
-        EMPTY    : 'empty',
-        BOMB     : 'bomb',
-        DISARMED : 'disarmed',
-    };
-
-    static FLAGS = {
-        EMPTY   : 'empty',
-        FLAGGED : 'flagged',
-        UNKNOWN : 'unknown',
-    };
 
     /**
      *
      * @param engine {Engine}
      * @param position {Vector3}
      */
-    constructor( engine, position ) {
+    constructor ( engine, position ) {
         this.engine   = engine;
-        this.state    = Field.STATES.EMPTY;
-        this.flag     = Field.FLAGS.EMPTY;
+        this.state    = STATES.EMPTY;
+        this.flag     = FLAGS.EMPTY;
         this.position = position;
 
         this.mesh = new Mesh(
-            engine.webGLRenderer.geometries.field,
-            engine.webGLRenderer.materials.defaultActive
+            engine.renderer.geometries.field,
+            engine.renderer.materials.defaultActive
         );
 
         this.mesh.name       = 'Field';
@@ -40,17 +40,17 @@ export default class Field {
      *
      * @param state
      */
-    setState( state ) {
+    setState ( state ) {
         this.state = state;
         switch ( state ) {
-            case Field.STATES.EMPTY:
-                this.mesh.material = this.engine.webGLRenderer.materials.defaultActive;
+            case STATES.EMPTY:
+                this.mesh.material = this.engine.renderer.materials.defaultActive;
                 break;
-            case Field.STATES.BOMB:
-                this.mesh.material = this.engine.webGLRenderer.materials.defaultActive;
+            case STATES.BOMB:
+                this.mesh.material = this.engine.renderer.materials.defaultActive;
                 break;
-            case Field.STATES.DISARMED:
-                this.mesh.material = this.engine.webGLRenderer.materials.disarmedActive;
+            case STATES.DISARMED:
+                this.mesh.material = this.engine.renderer.materials.disarmedActive;
                 break;
         }
     }

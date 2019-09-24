@@ -3,12 +3,41 @@ body {
   padding: 0;
   background-color: black;
   color: white;
+  font-family: 'Saira Stencil One', cursive;
 }
-#scene {
+#scene,
+canvas {
+  position: absolute;
+  top: 0;
+  left: 0;
   margin: 0;
   padding: 0;
-}
-canvas {
   display: block;
+}
+.wrapper {
+  background: rgba(0, 0, 0, 0.65);
+  position: absolute;
+  top: 0;
+  left: 0;
+  display: flex;
+  flex-flow: column nowrap;
+  justify-content: space-around;
+  align-items: center;
+  text-align: center;
+  width: 100%;
+  height: 100vh;
+  font-size: 20vh;
+  font-variant-numeric: slashed-zero proportional-nums;
+}
+#loading {
+  display: block;
+}
+#start {
+  display: none;
+  transition: text-shadow 250ms ease-in-out;
+  cursor: pointer;
+}
+#start:hover {
+  text-shadow: white 0 0 15px;
 }
 /*# sourceMappingURL=style.css.map */
